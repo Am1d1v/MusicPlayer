@@ -53,6 +53,17 @@ function pauseSong(){
     audio.pause();
 }
 
+// Update Progress
+function updateProgress(e){
+    // Song's Duration and Current Time of the Song
+    const {duration, currentTime} = e.srcElement
+    const progressPercent = ((currentTime / duration) * 100).toFixed(1);
+    console.log(progressPercent)
+
+    // Song's Progress
+    progress.style.width = `${progressPercent}%`;
+}
+
 
 // Event Listeners
 
@@ -79,7 +90,8 @@ prevBtn.addEventListener('click', () => {
         songIndex = 0;
     }
 
-    loadSong(songs[songIndex])
+    loadSong(songs[songIndex]);
+    playSong();
 });
 
 // Next Song
@@ -90,5 +102,9 @@ nextBtn.addEventListener('click', () => {
     }
     console.log(songIndex)
 
-    loadSong(songs[songIndex])
+    loadSong(songs[songIndex]);
+    playSong();
 });
+
+// Time Song Update
+audio.addEventListener('timeupdate', updateProgress)
