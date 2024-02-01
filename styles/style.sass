@@ -26,6 +26,23 @@ body
             .img-container
                 img
                     animation-play-state: running
+            .music-info
+                opacity: 1
+                transform: translateY(-100%)
+    &-info      
+        background-color: rgba(255, 255, 255, 0.5) 
+        border-radius: 15px 15px 0 0 
+        position: absolute
+        top: 0
+        left: 20px
+        width: calc(100% - 40px)
+        padding: 10px 10px 10px 150px
+        transform: translateY(0%)
+        transition: transform 0.3s linear
+        opacity: 0
+        z-index: 0
+        h4
+            margin: 0
 
 .img-container
     position: relative
@@ -67,3 +84,16 @@ body
         font-size: 27px
 
         
+.progress
+    background-color: #f5a5ea
+    border-radius: 6px
+    height: 100%
+    width: 0%
+    transition: width 0.1s linear
+    &-container
+        background-color: #fff
+        border-radius: 6px
+        cursor: pointer
+        margin: 10px 0
+        height: 5px
+        width: 100%
