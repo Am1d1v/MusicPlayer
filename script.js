@@ -62,9 +62,33 @@ playBtn.addEventListener('click', () => {
     // Check playing song status
     const isPlaying = musicContainer.classList.contains('play');
 
+    // Plat/Stop Buttons Toggle
     if(isPlaying){
         pauseSong();
     } else {
         playSong();
     }
+});
+
+// Change Song
+
+// Previous Song
+prevBtn.addEventListener('click', () => {
+    songIndex--;
+    if(songIndex < 0){
+        songIndex = 0;
+    }
+
+    loadSong(songs[songIndex])
+});
+
+// Next Song
+nextBtn.addEventListener('click', () => {
+    songIndex++;
+    if(songIndex > 1){
+        songIndex = 1;
+    }
+    console.log(songIndex)
+
+    loadSong(songs[songIndex])
 });
