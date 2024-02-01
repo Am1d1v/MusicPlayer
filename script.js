@@ -58,10 +58,20 @@ function updateProgress(e){
     // Song's Duration and Current Time of the Song
     const {duration, currentTime} = e.srcElement
     const progressPercent = ((currentTime / duration) * 100).toFixed(1);
-    console.log(progressPercent)
 
     // Song's Progress
     progress.style.width = `${progressPercent}%`;
+}
+
+// Set Progress Bar
+function setProgress(e){
+    const width = this.clientWidth;
+    const clickX = e.offsetX;
+    const duration = audio.duration;
+
+    // Set Song's current time
+    audio.currentTime = (clickX / width) * duration;
+
 }
 
 
@@ -108,3 +118,7 @@ nextBtn.addEventListener('click', () => {
 
 // Time Song Update
 audio.addEventListener('timeupdate', updateProgress)
+
+// Click on progress bar
+progressContainer.addEventListener('click', setProgress)
+
